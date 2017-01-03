@@ -44,7 +44,7 @@ public class FolderNavigator {
         if (folderExists(currentFolder)){
             ArrayList<String> result = new ArrayList<String>();
 
-            File f = null;
+            File f;
             File[] paths;
 
             try{
@@ -77,7 +77,7 @@ public class FolderNavigator {
         if (folderExists(currentFolder)){
             ArrayList<String> result = new ArrayList<String>();
 
-            File f = null;
+            File f;
             File[] paths;
 
             try{

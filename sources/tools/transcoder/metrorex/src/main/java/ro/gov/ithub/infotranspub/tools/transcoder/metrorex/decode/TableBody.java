@@ -2,9 +2,8 @@ package ro.gov.ithub.infotranspub.tools.transcoder.metrorex.decode;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.HashMap;
 
 
 
@@ -21,7 +20,7 @@ public class TableBody {
 
     private void initColumns(){
         addColumn(TableHeader.FIRST_COLUMN);
-        addColumn(TableHeader.LASTT_COLUMN);
+        addColumn(TableHeader.LAST_COLUMN);
     }
 
     private void addColumn(String name){
@@ -40,17 +39,11 @@ public class TableBody {
 
     public void sortVectors(){
         sortVector(TableHeader.FIRST_COLUMN);
-        sortVector(TableHeader.LASTT_COLUMN);
+        sortVector(TableHeader.LAST_COLUMN);
     }
 
     public void sortVector(String name){
-        Collections.sort(getColumn(name),
-                new Comparator<Node>() {
-                    @Override
-                    public int compare(Node o1, Node o2) {
-                        return o1.getPosition().getRow() - o2.getPosition().getRow();
-                    }
-                });
+        Collections.sort(getColumn(name), new NodeComparator());
     }
 
 

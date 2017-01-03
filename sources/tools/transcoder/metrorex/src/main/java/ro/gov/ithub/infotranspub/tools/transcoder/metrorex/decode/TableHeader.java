@@ -6,7 +6,7 @@ import java.util.Vector;
 public class TableHeader {
 
     public static final String FIRST_COLUMN = "First";
-    public static final String LASTT_COLUMN = "Last";
+    public static final String LAST_COLUMN = "Last";
 
 
     public static final int FIRST_COLUMN_POSITION = 1000;
@@ -36,13 +36,32 @@ public class TableHeader {
     }
 
     public void recalcColumnPositions(){
-        for  (Node node:columns){
-            if ( node.getPosition().getCol() < firstColumn)
-                firstColumn = node.getPosition().getCol();
+        Node firstNode = null;
+        Node lastNode = null;
 
-            if ( node.getPosition().getCol() > lastColumn)
+        for  (Node node:columns){
+            if ( node.getPosition().getCol() < firstColumn){
+                firstColumn = node.getPosition().getCol();
+                firstNode = node;
+                firstNode.setValue(FIRST_COLUMN);
+            }
+
+            if ( node.getPosition().getCol() > lastColumn) {
                 lastColumn = node.getPosition().getCol();
+                lastNode = node;
+                lastNode.setValue(LAST_COLUMN);
+            }
         }
+
+        columnPositions = new HashMap<String, String>();
+        reverseColumnPositions = new HashMap<String,String>();
+
+        columnPositions.put(firstNode.getValue(), Integer.toString(firstNode.getPosition().getCol()));
+        columnPositions.put(lastNode.getValue(), Integer.toString(lastNode.getPosition().getCol()));
+
+        reverseColumnPositions.put(Integer.toString(firstNode.getPosition().getCol()),firstNode.getValue());
+        reverseColumnPositions.put(Integer.toString(lastNode.getPosition().getCol()),lastNode.getValue());
+
     }
 
     public int getFirstColumn(){ return firstColumn; }
@@ -58,5 +77,11 @@ public class TableHeader {
         return reverseColumnPositions.get(Integer.toString(position));
     }
 
+
+    public boolean isValidColumn( int columnPosition){
+        if ( columnPosition == firstColumn || columnPosition == lastColumn)
+            return true;
+        return false;
+    }
 }
 
