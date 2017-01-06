@@ -8,7 +8,7 @@ public class Table {
         columns = new HashMap<String, TextColumn>();
     }
 
-    private void initColumns(){ 
+    private void initColumns(){
         addColumn(TableHeader.FIRST_COLUMN);
         addColumn(TableHeader.LAST_COLUMN);
     }
