@@ -2,6 +2,8 @@ package ro.gov.ithub.infotranspub.tools.transcoder.metrorex.decode;
 
 public class RowCol {
     public static final int     ROWCOL_ENCODE_FACTOR = 1000;
+    public static final int     ROWCOL_COMPARE_FACTOR = 10000;
+
     public static final int     UNUSED = -1;
     public static final String  FIELD_SEPARATOR = ":";
 
@@ -38,6 +40,11 @@ public class RowCol {
     public int getIntKey(){
         return row * ROWCOL_ENCODE_FACTOR + col;
     }
+    public int getCompareKey(){
+        return col * ROWCOL_COMPARE_FACTOR + row;
+    }
+
+
 
     public String toString(){
         return new StringBuilder().append(Integer.toString(row))

@@ -15,6 +15,7 @@ public class TableBody {
     }
 
     public TableBody(){
+        initColumns();
 
     }
 

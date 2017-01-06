@@ -35,8 +35,10 @@ public class TableDetector {
         int rowNumber = INFINITY;
         for (String key:nodes.keySet()) {
             Node n = nodes.get(key);
-            if ( n.getPosition().getRow() < rowNumber ){
-                rowNumber = n.getPosition().getRow();
+            if (n.getPosition().getCol() == columnPosition){
+                if ( n.getPosition().getRow() < rowNumber ){
+                    rowNumber = n.getPosition().getRow();
+                }
             }
         }
         return rowNumber;

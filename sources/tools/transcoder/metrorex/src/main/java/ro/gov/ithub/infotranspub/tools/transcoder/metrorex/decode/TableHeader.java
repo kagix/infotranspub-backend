@@ -56,11 +56,11 @@ public class TableHeader {
         columnPositions = new HashMap<String, String>();
         reverseColumnPositions = new HashMap<String,String>();
 
-        columnPositions.put(firstNode.getValue(), Integer.toString(firstNode.getPosition().getCol()));
-        columnPositions.put(lastNode.getValue(), Integer.toString(lastNode.getPosition().getCol()));
+        columnPositions.put(FIRST_COLUMN, Integer.toString(firstNode.getPosition().getCol()));
+        columnPositions.put(LAST_COLUMN, Integer.toString(lastNode.getPosition().getCol()));
 
-        reverseColumnPositions.put(Integer.toString(firstNode.getPosition().getCol()),firstNode.getValue());
-        reverseColumnPositions.put(Integer.toString(lastNode.getPosition().getCol()),lastNode.getValue());
+        reverseColumnPositions.put(Integer.toString(firstNode.getPosition().getCol()),FIRST_COLUMN);
+        reverseColumnPositions.put(Integer.toString(lastNode.getPosition().getCol()),LAST_COLUMN);
 
     }
 
