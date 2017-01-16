@@ -40,7 +40,7 @@ public class FolderNavigator {
         return Boolean.FALSE;
     }
 
-    List<String> scanCurrentFolder(){
+    public List<String> scanCurrentFolder(){
         if (folderExists(currentFolder)){
             ArrayList<String> result = new ArrayList<String>();
 
@@ -73,7 +73,7 @@ public class FolderNavigator {
         return null;
     }
 
-    List<String> scanCurrentFolderWithFilter(FilenameFilter filter){
+    public List<String> scanCurrentFolderWithFilter(FilenameFilter filter){
         if (folderExists(currentFolder)){
             ArrayList<String> result = new ArrayList<String>();
 
@@ -92,8 +92,6 @@ public class FolderNavigator {
                 // for each pathname in pathname array
                 for(File path:paths)
                 {
-                    // prints file and directory paths
-                    System.out.println(path);
                     result.add(path.toString());
                 }
                 if (result.size() == 0)

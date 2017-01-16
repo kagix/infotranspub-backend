@@ -21,14 +21,14 @@ public class TempTextFile {
     public boolean open(String mode){
         if ( mode.equals(WRITE)){
             lines = new ArrayList<String>();
-            int currentLine = FIRST_LINE;
+            currentLine = FIRST_LINE;
             openFlag = true;
         } else if ( mode.equals(READ)){
-            int currentLine = FIRST_LINE;
+            currentLine = FIRST_LINE;
             openFlag = true;
 
         } else if ( mode.equals(APPEND)){
-            int currentLine = lines.size();
+            currentLine = lines.size();
             openFlag = true;
 
         } else {
@@ -55,5 +55,15 @@ public class TempTextFile {
         }
         return openFlag;
     }
+
+    public String read(){
+        String result = null;
+        if (openFlag && currentLine < lines.size()){
+            result = lines.get(currentLine);
+            currentLine ++;
+        }
+        return result;
+    }
+
 
 }
